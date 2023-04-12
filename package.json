@@ -1,0 +1,25 @@
+{
+  "name": "meydit_fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run start --prefix backend\" \"npm run start --prefix frontend\"",
+    "install-all": "npm install && npm run install --prefix backend && npm run install --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sithukaungset/Meydit-fullstack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sithukaungset/Meydit-fullstack/issues"
+  },
+  "homepage": "https://github.com/sithukaungset/Meydit-fullstack#readme",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
