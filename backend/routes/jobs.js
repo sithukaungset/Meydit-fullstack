@@ -1,6 +1,6 @@
 const express = require('express');
-const multer = require('multer');
 const router = express.Router();
+const multer = require('multer');
 
 // Configure multer for image uploads
 const storage = multer.diskStorage({
@@ -8,23 +8,23 @@ const storage = multer.diskStorage({
     cb(null, 'uploads/');
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
+    cb(null, `${Date.now()}_${file.originalname}`);
   },
 });
 
 const upload = multer({ storage });
 
-// Add a new job
-router.post('/', upload.array('images'), async (req, res) => {
-  try {
-    // Save the job to the database
-    // Example: await Job.create({ ...req.body, images: req.files.map(file => file.path) });
+// Handle POST request for creating a new job
+router.post('/', upload.array('images'), (req, res) => {
+  // Save job data to your database
+  // req.body contains the form data
+  // req.files contains the uploaded images
 
-    res.status(201).json({ message: 'Job posted successfully!' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error posting the job. Please try again.' });
-  }
+  // Replace the following with actual database logic
+  console.log('Job posted:', req.body);
+  console.log('Uploaded images:', req.files);
+
+  res.status(201).json({ message: 'Job posted successfully!' });
 });
 
 module.exports = router;

@@ -3,13 +3,15 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { Container, Box, TextField, Typography, Button, FormControl, InputLabel, Select, MenuItem, TextareaAutosize, Stack } from '@mui/material';
 import { PhotoCamera } from '@mui/icons-material';
+import api from './api'; // Import the axios instance
+
 
 const JobForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      await axios.post('/api/jobs', data);
+      await api.post('/api/jobs', data);
       alert('Job posted successfully!');
     } catch (error) {
       console.error(error);

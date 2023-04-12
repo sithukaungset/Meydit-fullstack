@@ -5,14 +5,14 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
+
+const jobRouter = require('./routes/jobs'); // Import the job router
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/api/jobs', jobsRouter); // Add the jobs route
+app.use('/api/jobs', jobRouter); // Add the jobs route
 app.use('/uploads', express.static('uploads'));
-app.use(cors());
-app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send('Hello, World!');
