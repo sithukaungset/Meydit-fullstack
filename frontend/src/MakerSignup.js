@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-const Signup = () => {
+const MakerSignup = () => {
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -41,7 +41,7 @@ const Signup = () => {
       const response = await axios.post('http://localhost:4000/api/users/register', user);
       console.log(response.data);
       notifySuccess();
-      navigate('/consumer');
+      navigate('/maker');
       setTimeout(() => {
         // Replace this with the actual redirection logic
         console.log('Redirecting to login page...');
@@ -60,7 +60,7 @@ const Signup = () => {
       console.log(response.data);
       notifySuccess();
       // Redirect to the desired page after successful login
-      navigate('/consumer');
+      navigate('/maker');
     } catch (error) {
       console.error(error);
     }
@@ -186,6 +186,6 @@ const Signup = () => {
     );
   };
   
-  export default Signup;
+  export default MakerSignup;
   
   

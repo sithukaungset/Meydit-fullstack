@@ -45,7 +45,7 @@ const HomePage = () => {
               color="secondary"
               startIcon={<MakerIcon />}
               sx={{ fontFamily: 'Roboto', fontSize: '1.2rem', fontWeight: 'bold' }}
-              onClick={() => handleButtonClick('/maker')}
+              onClick={() => handleButtonClick('/makerpage')}
             >
               Maker
             </Button>

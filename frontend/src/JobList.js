@@ -22,6 +22,20 @@ const fetchJobs = async () => {
   return [    {      id: 1,      type: 'Dress',      description: 'Sample dress',      location: 'New York',      quoteCount: 5,      status: 'Open',    },    {      id: 2,      type: 'Ethnic Wear - Sari / Blouse',      description: 'Sample sari',      location: 'California',      quoteCount: 3,      status: 'Closed',    },  ];
 };
 
+// const fetchJobs = async () => {
+//   try {
+//     const response = await fetch('http://localhost:4000/api/jobs'); // Change the API endpoint as needed
+//     if (!response.ok) {
+//       throw new Error('Failed to fetch jobs');
+//     }
+//     const jobs = await response.json();
+//     return jobs;
+//   } catch (error) {
+//     console.error(error);
+//     return [];
+//   }
+// };
+
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
@@ -33,9 +47,9 @@ const JobList = () => {
       const fetchedJobs = await fetchJobs();
       setJobs(fetchedJobs);
     };
-
     loadJobs();
   }, []);
+  
 
   const handleJobSelect = (job) => {
     setSelectedJob(job);

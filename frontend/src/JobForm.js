@@ -33,7 +33,7 @@ const JobForm = () => {
         }
       });
 
-      await api.post('/api/jobs', formData); // Removed "http://localhost:4000" from URL
+      await api.post('http://localhost:4000/api/jobs', formData); // Removed "http://localhost:4000" from URL
       alert('Job posted successfully!');
     } catch (error) {
       console.error(error);

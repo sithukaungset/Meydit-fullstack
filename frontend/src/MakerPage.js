@@ -1,22 +1,19 @@
-// MakerPage
-import React from 'react';
-import SignupPage from './Signup';
-import JobForm from './JobForm';
+// MakerPage.js
+import React, { useState } from 'react';
+import MakerSignup from './MakerSignup';
+import Maker from './Maker';
 
 const MakerPage = () => {
-  const [isSignedUp, setIsSignedUp] = React.useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const handleSignupSuccess = () => {
-    setIsSignedUp(true);
+  const handleAuthentication = () => {
+    setIsAuthenticated(true);
   };
 
-  return (
-    <>
-      {!isSignedUp && (
-        <SignupPage userType="maker" onSignupSuccess={handleSignupSuccess} />
-      )}
-      {isSignedUp && <JobForm />}
-    </>
+  return isAuthenticated ? (
+    <Maker />
+  ) : (
+    <MakerSignup onSuccessfulAuth={handleAuthentication} />
   );
 };
 

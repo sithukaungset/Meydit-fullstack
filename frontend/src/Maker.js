@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Button, Container, Typography } from '@mui/material';
+import JobList from './JobList';
 
-
-const Consumer = () => {
+const Maker = () => {
   const [stage, setStage] = useState(0);
 
   const handleJobFormSubmission = () => {
@@ -17,9 +17,9 @@ const Consumer = () => {
     <Container maxWidth="md" sx={{ bgcolor: 'black' }}>
   
 
-       
+        
     </Container>
   );
 };
 
-export default Consumer;
+export default Maker;

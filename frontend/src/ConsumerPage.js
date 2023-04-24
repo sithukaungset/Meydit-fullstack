@@ -1,7 +1,7 @@
 // ConsumerPage.js
 import React, { useState } from 'react';
 import Consumer from './Consumer';
-import Signup from './Signup';
+import ConsumerSignup from './ConsumerSignup';
 
 const ConsumerPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -13,7 +13,7 @@ const ConsumerPage = () => {
   return isAuthenticated ? (
     <Consumer />
   ) : (
-    <Signup onSuccessfulAuth={handleAuthentication} />
+    <ConsumerSignup onSuccessfulAuth={handleAuthentication} />
   );
 };
 
