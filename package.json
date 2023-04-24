@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/sithukaungset/Meydit-fullstack#readme",
   "dependencies": {
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "cores": "^0.8.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1"
   }
 }
