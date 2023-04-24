@@ -11,8 +11,6 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
 
-const jobRouter = require('./routes/jobs'); // Import the job router
-
 const pool = new Pool({
   user: 'sithukaungset',
   host: 'localhost',
@@ -22,6 +20,7 @@ const pool = new Pool({
 });
 
 const userRouter = require('./routes/user')(pool); //Import and pass the pool to the user router
+const jobRouter = require('./routes/jobs')(pool); // Import the job router
 
 app.use(cors());
 app.use(bodyParser.json());

@@ -1,6 +1,17 @@
 import React from 'react';
 import { Box, Button, Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import ConsumerIcon from '@mui/icons-material/Person';
+import MakerIcon from '@mui/icons-material/Work';
+import { styled } from '@mui/system';
+
+const Background = styled('div')({
+  background: 'linear-gradient(to bottom right, #e66465, #9198e5)',
+  minHeight: '100vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -10,43 +21,38 @@ const HomePage = () => {
   };
 
   return (
-    <Container maxWidth="md">
-      <Box sx={{ padding: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography variant="h4" gutterBottom>
-          Welcome to Meyd.it
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          Meyd.it is a digital, double-sided marketplace that connects consumers looking for tailor-made
-          clothes from makers who often independently work from home and not necessarily full-time.
-          Thousands of skilled tailors and designers in Sydney alone are willing to take on gig-based
-          work.
-        </Typography>
-        <Typography variant="h6" gutterBottom>
-          Consumers
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          Consumers can register for an account for free, create a
-          “job” along with inspirations, publish the job, get quotations,
-          accept quotations, make payments upfront for the entire project, acknowledge receipt of goods,
-          and provide feedback on the markers or the outcome of their makings.
-        </Typography>
-        <Typography variant="h6" gutterBottom>
-          Makers
-        </Typography>
-        <Typography variant="body1" gutterBottom>
-          The Markers can create an account for free, update their Ateliers, find and bid for jobs, update
-          the accepted job status, and provide delivery details for shipped items.
-        </Typography>
-        <Box sx={{ display: 'flex', gap: 2, marginTop: 2 }}>
-          <Button variant="contained" color="primary" onClick={() => handleButtonClick('/consumer')}>
-            Consumer
-          </Button>
-          <Button variant="contained" color="secondary" onClick={() => handleButtonClick('/maker')}>
-            Maker
-          </Button>
+    <Background>
+      <Container maxWidth="md">
+        <Box sx={{ padding: 4, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+          <Typography variant="h4" gutterBottom style={{ color: 'white', fontFamily: 'Roboto' }}>
+            Welcome to Meyd.it
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom style={{ color: 'white', fontFamily: 'Roboto', marginTop: '2rem' }}>
+            Authentic, sustainable and stylish outfits require awesome creatives. Meyd.it helps source and manage slow fashion,that is made to measure and on demand.
+          </Typography>
+          <Box sx={{ display: 'flex', gap: 2, marginTop: '2rem' }}>
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<ConsumerIcon />}
+              sx={{ fontFamily: 'Roboto', fontSize: '1.2rem', fontWeight: 'bold' }}
+              onClick={() => handleButtonClick('/consumerpage')}
+            >
+              Consumer
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              startIcon={<MakerIcon />}
+              sx={{ fontFamily: 'Roboto', fontSize: '1.2rem', fontWeight: 'bold' }}
+              onClick={() => handleButtonClick('/maker')}
+            >
+              Maker
+            </Button>
+          </Box>
         </Box>
-      </Box>
-    </Container>
+      </Container>
+    </Background>
   );
 };
 

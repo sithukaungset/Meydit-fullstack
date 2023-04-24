@@ -15,17 +15,12 @@ const Consumer = () => {
   };
 
   return (
-    <Container maxWidth="md">
-      <Box sx={{ padding: 4 }}>
-        <Typography variant="h4" gutterBottom>
-          Consumer
-        </Typography>
+    <Container maxWidth="md" sx={{ bgcolor: 'black' }}>
+  
+
         {stage === 0 && (
           <>
-            <Typography variant="body1" gutterBottom>
-              Register for an account for free, create a "job" along with inspirations, and publish
-              the job.
-            </Typography>
+
             <JobForm onFormSubmit={handleJobFormSubmission} />
           </>
         )}
@@ -46,7 +41,7 @@ const Consumer = () => {
             {/* Add the component to handle receipt acknowledgement and feedback here */}
           </>
         )}
-      </Box>
+
     </Container>
   );
 };

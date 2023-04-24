@@ -1,22 +1,19 @@
-// Consumer Page
-import React from 'react';
-import SignupPage from './Signup';
+// ConsumerPage.js
+import React, { useState } from 'react';
 import Consumer from './Consumer';
+import Signup from './Signup';
 
 const ConsumerPage = () => {
-    const [isSignedUp, setIsSignedUp] = React.useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const handleSignupSuccess = () => {
-        setIsSignedUp(true);
-    };
+  const handleAuthentication = () => {
+    setIsAuthenticated(true);
+  };
 
-    return (
-      <>
-        {!isSignedUp && (
-            <SignupPage userType="consumer" onSignupSuccess={handleSignupSuccess} />
-        )}
-        {isSignedUp && <Consumer />}
-    </>
+  return isAuthenticated ? (
+    <Consumer />
+  ) : (
+    <Signup onSuccessfulAuth={handleAuthentication} />
   );
 };
 
