@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+
 import { 
   Container, 
   Box, 
@@ -123,19 +124,23 @@ const JobForm = () => {
             }}
           />
   
-          <FormControl fullWidth>
-            <InputLabel id="clothingTypeLabel">Clothing Type</InputLabel>
-            <Select
-              labelId="clothingTypeLabel"
-              id="clothingType"
-              label="Clothing Type"
-              {...register('clothingType', { required: true })}
-              error={errors.clothingType}
-              InputProps={{
-                style: { color: 'white' },
-              }}
-            />
-          </FormControl>
+  <FormControl fullWidth>
+  <InputLabel id="clothingTypeLabel">Clothing Type</InputLabel>
+  <Select
+    labelId="clothingTypeLabel"
+    id="clothingType"
+    label="Clothing Type"
+    {...register('clothingType', { required: true })}
+    error={errors.clothingType}
+    inputProps={{
+      style: { color: 'white' },
+    }}
+  >
+    <MenuItem value="Dress">Dress</MenuItem>
+    <MenuItem value="Ethnic Wear - Sari / Blouse">Ethnic Wear - Sari / Blouse</MenuItem>
+  </Select>
+  {errors.clothingType && <p>Clothing type is required.</p>}
+</FormControl>
           <TextField
             id="description"
             label="Description"
@@ -163,9 +168,11 @@ const JobForm = () => {
               style: { color: 'white' },
             }}
             />
+                
+  
             {/* File input for image uploads */}
           <label htmlFor="imageUpload">
-              <input type="file" name="images" multiple />
+              <input type="file" name="images" id="imageUpload" multiple />
 
               <Button
                 variant="contained"
