@@ -38,7 +38,7 @@ const ConsumerSignup = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post('http://localhost:4000/api/users/register', user);
+      const response = await axios.post('https://meydit-backend.herokuapp.com/api/users/register', user);
       console.log(response.data);
       notifySuccess();
       navigate('/consumer');
@@ -53,7 +53,7 @@ const ConsumerSignup = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:4000/api/users/login', {
+      const response = await axios.post('https://meydit-backend.herokuapp.com/api/users/login', {
         email: loginData.loginEmail,
         password: loginData.loginPassword,
       });
