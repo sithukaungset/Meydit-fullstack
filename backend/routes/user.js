@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
-app.use(cors());
+app.use(cors({
+  origin: 'https://frontend-sithukaungset.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 module.exports = (pool) => {
   router.post('/register', async (req, res) => {

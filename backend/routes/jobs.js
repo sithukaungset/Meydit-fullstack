@@ -2,7 +2,12 @@ module.exports = (pool) => {
   const express = require('express');
   const router = express.Router();
   const multer = require('multer');
-
+  const cors = require('cors');
+  app.use(cors({
+    origin: 'https://frontend-sithukaungset.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
   // Configure multer for image uploads
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {
