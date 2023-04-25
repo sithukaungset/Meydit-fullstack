@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const cors = require('cors');
+app.use(cors());
 
 module.exports = (pool) => {
   router.post('/register', async (req, res) => {

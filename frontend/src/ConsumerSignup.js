@@ -3,6 +3,12 @@ import axios from 'axios';
 import { Container, Box, Typography, TextField, Button } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://frontend-sithukaungset.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 import 'react-toastify/dist/ReactToastify.css';
 
